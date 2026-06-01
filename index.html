@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLYN Beauty – Kosmetikstudio Dorsten | Dermatologische Kosmetik &amp; Ästhetik</title>
+  <meta name="description" content="CLYN Beauty in Dorsten – dermatologische Kosmetik & Ästhetik. Gesichtsbehandlungen, Wimpernverlängerung, Lash- & Browlifting und Waxing. Für gesunde Haut & sichtbare Ergebnisse. Jetzt Termin sichern." />
+  <meta name="theme-color" content="#1a1a1a" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CLYN Beauty – Kosmetikstudio Dorsten" />
+  <meta property="og:description" content="Dermatologische Kosmetik & Ästhetik. Für gesunde Haut & sichtbare Ergebnisse." />
+  <meta property="og:locale" content="de_DE" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "CLYN Beauty",
+    "description": "Dermatologische Kosmetik & Ästhetik in Dorsten",
+    "image": "assets/logo.svg",
+    "telephone": "+49 1636183181",
+    "email": "info@clynbeauty.de",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Borkener Straße 163",
+      "addressLocality": "Dorsten",
+      "postalCode": "46284",
+      "addressRegion": "Nordrhein-Westfalen",
+      "addressCountry": "DE"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "09:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "14:00" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "42"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="CLYN Beauty Startseite">
+        <span class="brand-mark">CLYN</span>
+        <span class="brand-sub">BEAUTY</span>
+      </a>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="studio.html#studio">Studio</a>
+        <a href="kontakt.html#kontakt">Kontakt</a>
+      </nav>
+      <a class="nav-ig" href="https://www.instagram.com/clyn.beauty/" target="_blank" rel="noopener" aria-label="CLYN Beauty auf Instagram">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+        </svg>
+      </a>
+      <a class="btn btn-dark nav-cta" href="#termin">Termin sichern</a>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Mobile-Drawer ===== -->
+  <div class="drawer-overlay" id="nav-overlay" aria-hidden="true"></div>
+  <aside class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <div class="mm-head">
+        <a href="#top" class="brand mm-brand" aria-label="CLYN Beauty Startseite">
+          <span class="brand-mark">CLYN</span>
+          <span class="brand-sub">BEAUTY</span>
+        </a>
+        <button class="mm-close" aria-label="Menü schließen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <nav class="mm-nav" aria-label="Mobile Navigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="studio.html#studio">Studio</a>
+        <a href="kontakt.html#kontakt">Kontakt</a>
+        <a href="https://www.instagram.com/clyn.beauty/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+      <div class="mm-contact">
+        <a class="mm-phone" href="tel:+491636183181">
+          <span class="mm-phone-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </span>
+          <span class="mm-phone-txt">
+            <strong>0163 6183181</strong>
+            <em>Termine nach Vereinbarung</em>
+          </span>
+        </a>
+        <a class="btn btn-dark mm-cta" href="#termin">Termin sichern</a>
+      </div>
+  </aside>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow reveal">Kosmetikstudio · Dorsten</p>
+      <h1 class="reveal">Dermatologische Kosmetik<br /><span class="display-edit">&amp; Ästhetik</span></h1>
+      <p class="hero-lead reveal">Für gesunde Haut &amp; sichtbare Ergebnisse. In ruhiger, stilvoller Atmosphäre lassen Sie den Alltag hinter sich – wir kümmern uns um den Rest.</p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-dark" href="#termin">Termin anfragen</a>
+        <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
+      </div>
+      <div class="hero-trust reveal">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span><strong>5,0</strong> aus <a href="https://www.google.com/maps/search/?api=1&query=CLYN+Beauty+Borkener+Stra%C3%9Fe+163+Dorsten" target="_blank" rel="noopener" class="trust-link">42 Bewertungen</a> · <em>Top&nbsp;Rated&nbsp;2025</em></span>
+      </div>
+    </div>
+    <div class="hero-deco" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== Marquee / Leistungs-Stichworte ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Gesichtsbehandlungen</span><span>·</span>
+      <span>Wimpernverlängerung</span><span>·</span>
+      <span>Lashlifting</span><span>·</span>
+      <span>Browlifting</span><span>·</span>
+      <span>Green Peel</span><span>·</span>
+      <span>Anti Aging</span><span>·</span>
+      <span>Waxing</span><span>·</span>
+      <span>Gesichtsbehandlungen</span><span>·</span>
+      <span>Wimpernverlängerung</span><span>·</span>
+      <span>Lashlifting</span><span>·</span>
+      <span>Browlifting</span><span>·</span>
+      <span>Green Peel</span><span>·</span>
+      <span>Anti Aging</span><span>·</span>
+      <span>Waxing</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- ===== Leistungen ===== -->
+  <section class="services" id="leistungen">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leistungen &amp; Preise</p>
+        <h2>Behandlungen für <span class="display-edit">Ihre Schönheit</span></h2>
+      </div>
+
+      <!-- Gesichtsbehandlungen -->
+      <div class="service-block reveal">
+        <h3 class="service-title">Gesichts- &amp; Hautbehandlungen</h3>
+        <ul class="price-list">
+          <li class="pl-item" data-name="Neukunden-Behandlung" data-price="0" data-pricelabel="kostenlos" data-dur="90"><span class="pl-name">Neukunden-Behandlung <em>zum Kennenlernen</em></span><span class="pl-dots"></span><span class="pl-meta">1 Std 30 Min</span><span class="pl-price free">kostenlos</span></li>
+          <li class="pl-item" data-name="Klassik Behandlung" data-price="65" data-pricelabel="65 €" data-dur="75"><span class="pl-name">Klassik Behandlung</span><span class="pl-dots"></span><span class="pl-meta">1 Std 15 Min</span><span class="pl-price">65 €</span></li>
+          <li class="pl-item" data-name="Deluxe Behandlung" data-price="75" data-pricelabel="75 €" data-dur="75"><span class="pl-name">Deluxe Behandlung</span><span class="pl-dots"></span><span class="pl-meta">1 Std 15 Min</span><span class="pl-price">75 €</span></li>
+          <li class="pl-item" data-name="Sensiderm Behandlung" data-price="80" data-pricelabel="80 €" data-dur="75"><span class="pl-name">Sensiderm Behandlung <em>für sensible Haut</em></span><span class="pl-dots"></span><span class="pl-meta">1 Std 15 Min</span><span class="pl-price">80 €</span></li>
+          <li class="pl-item" data-name="Anti Aging" data-price="89" data-pricelabel="89 €" data-dur="75"><span class="pl-name">Anti Aging</span><span class="pl-dots"></span><span class="pl-meta">1 Std 15 Min</span><span class="pl-price">89 €</span></li>
+          <li class="pl-item" data-name="Green Peel" data-price="90" data-pricelabel="90 €" data-dur="75"><span class="pl-name">Green Peel</span><span class="pl-dots"></span><span class="pl-meta">1 Std 15 Min</span><span class="pl-price">90 €</span></li>
+          <li class="pl-item" data-name="CLYN Skin Facial" data-price="110" data-pricelabel="110 €" data-dur="75"><span class="pl-name">CLYN Skin Facial</span><span class="pl-dots"></span><span class="pl-meta">1 Std 15 Min</span><span class="pl-price">110 €</span></li>
+          <li class="pl-item" data-name="CLYN Skin Facial Deluxe" data-price="125" data-pricelabel="125 €" data-dur="90"><span class="pl-name">CLYN Skin Facial Deluxe <em>Signature</em></span><span class="pl-dots"></span><span class="pl-meta">1 Std 30 Min</span><span class="pl-price">125 €</span></li>
+        </ul>
+      </div>
+
+      <!-- Wimpern Neuanlagen -->
+      <div class="service-block reveal">
+        <h3 class="service-title">Wimpernverlängerung · Neuanlagen</h3>
+        <ul class="price-list">
+          <li class="pl-item" data-name="Classic Lashes" data-price="85" data-pricelabel="85 €" data-dur="90"><span class="pl-name">Classic Lashes</span><span class="pl-dots"></span><span class="pl-meta">1 Std 30 Min</span><span class="pl-price">85 €</span></li>
+          <li class="pl-item" data-name="Classic Lashes Brown" data-price="85" data-pricelabel="85 €" data-dur="90"><span class="pl-name">Classic Lashes <em>Brown</em></span><span class="pl-dots"></span><span class="pl-meta">1 Std 30 Min</span><span class="pl-price">85 €</span></li>
+          <li class="pl-item" data-name="Wispy Lashes" data-price="95" data-pricelabel="95 €" data-dur="90"><span class="pl-name">Wispy Lashes</span><span class="pl-dots"></span><span class="pl-meta">1 Std 30 Min</span><span class="pl-price">95 €</span></li>
+          <li class="pl-item" data-name="Soft Volume" data-price="100" data-pricelabel="100 €" data-dur="90"><span class="pl-name">Soft Volume</span><span class="pl-dots"></span><span class="pl-meta">1 Std 30 Min</span><span class="pl-price">100 €</span></li>
+          <li class="pl-item" data-name="Soft Volume Brown" data-price="100" data-pricelabel="100 €" data-dur="90"><span class="pl-name">Soft Volume <em>Brown</em></span><span class="pl-dots"></span><span class="pl-meta">1 Std 30 Min</span><span class="pl-price">100 €</span></li>
+          <li class="pl-item" data-name="Mega Volume" data-price="115" data-pricelabel="115 €" data-dur="90"><span class="pl-name">Mega Volume</span><span class="pl-dots"></span><span class="pl-meta">1 Std 30 Min</span><span class="pl-price">115 €</span></li>
+        </ul>
+      </div>
+
+      <!-- Wimpern Auffüllungen -->
+      <div class="service-block reveal">
+        <h3 class="service-title">Wimpern · Auffüllungen</h3>
+        <ul class="price-list">
+          <li class="pl-item" data-name="Auffüllung Classic" data-price="45" data-pricelabel="45–55 €" data-dur="60"><span class="pl-name">Classic <em>2–4 Wochen</em></span><span class="pl-dots"></span><span class="pl-meta">ab 1 Std</span><span class="pl-price">45–55 €</span></li>
+          <li class="pl-item" data-name="Auffüllung Wispy" data-price="50" data-pricelabel="50–60 €" data-dur="75"><span class="pl-name">Wispy <em>2–4 Wochen</em></span><span class="pl-dots"></span><span class="pl-meta">1 Std – 1 Std 15</span><span class="pl-price">50–60 €</span></li>
+          <li class="pl-item" data-name="Auffüllung Soft Volume" data-price="50" data-pricelabel="50–60 €" data-dur="75"><span class="pl-name">Soft Volume <em>2–4 Wochen</em></span><span class="pl-dots"></span><span class="pl-meta">1 Std – 1 Std 15</span><span class="pl-price">50–60 €</span></li>
+          <li class="pl-item" data-name="Auffüllung Mega Volume" data-price="55" data-pricelabel="55–65 €" data-dur="75"><span class="pl-name">Mega Volume <em>2–4 Wochen</em></span><span class="pl-dots"></span><span class="pl-meta">1 Std 15 Min</span><span class="pl-price">55–65 €</span></li>
+          <li class="pl-item" data-name="Wimpernverlängerung entfernen" data-price="20" data-pricelabel="20 €" data-dur="15"><span class="pl-name">Wimpernverlängerung entfernen</span><span class="pl-dots"></span><span class="pl-meta">15 Min</span><span class="pl-price">20 €</span></li>
+        </ul>
+      </div>
+
+      <!-- Lash & Brow Lifting -->
+      <div class="service-block reveal">
+        <h3 class="service-title">Lash- &amp; Browlifting · Färben</h3>
+        <ul class="price-list">
+          <li class="pl-item" data-name="Lashlifting inkl. Färben" data-price="65" data-pricelabel="65 €" data-dur="60"><span class="pl-name">Lashlifting <em>inkl. Färben</em></span><span class="pl-dots"></span><span class="pl-meta">1 Std</span><span class="pl-price">65 €</span></li>
+          <li class="pl-item" data-name="Browlifting inkl. Färben &amp; Zupfen" data-price="65" data-pricelabel="65 €" data-dur="45"><span class="pl-name">Browlifting <em>inkl. Färben &amp; Zupfen</em></span><span class="pl-dots"></span><span class="pl-meta">45 Min</span><span class="pl-price">65 €</span></li>
+          <li class="pl-item" data-name="Combo Lift (Lash &amp; Brow)" data-price="105" data-pricelabel="105 €" data-dur="60"><span class="pl-name">Combo Lift <em>Lash- &amp; Browlifting</em></span><span class="pl-dots"></span><span class="pl-meta">1 Std</span><span class="pl-price">105 €</span></li>
+          <li class="pl-item" data-name="Wimpern färben" data-price="15" data-pricelabel="15 €" data-dur="15"><span class="pl-name">Wimpern färben</span><span class="pl-dots"></span><span class="pl-meta">15 Min</span><span class="pl-price">15 €</span></li>
+          <li class="pl-item" data-name="Augenbrauen färben &amp; zupfen" data-price="18" data-pricelabel="18 €" data-dur="20"><span class="pl-name">Augenbrauen färben &amp; zupfen</span><span class="pl-dots"></span><span class="pl-meta">20 Min</span><span class="pl-price">18 €</span></li>
+          <li class="pl-item" data-name="Augenbrauen zupfen" data-price="10" data-pricelabel="10 €" data-dur="15"><span class="pl-name">Augenbrauen zupfen</span><span class="pl-dots"></span><span class="pl-meta">15 Min</span><span class="pl-price">10 €</span></li>
+        </ul>
+      </div>
+
+      <!-- Waxing -->
+      <div class="service-block reveal">
+        <h3 class="service-title">Waxing</h3>
+        <ul class="price-list">
+          <li class="pl-item" data-name="Waxing Oberlippe" data-price="10" data-pricelabel="10 €" data-dur="15"><span class="pl-name">Oberlippe</span><span class="pl-dots"></span><span class="pl-price">10 €</span></li>
+          <li class="pl-item" data-name="Waxing Augenbrauen" data-price="15" data-pricelabel="15 €" data-dur="15"><span class="pl-name">Augenbrauen</span><span class="pl-dots"></span><span class="pl-price">15 €</span></li>
+          <li class="pl-item" data-name="Waxing Kinn" data-price="15" data-pricelabel="15 €" data-dur="15"><span class="pl-name">Kinn</span><span class="pl-dots"></span><span class="pl-price">15 €</span></li>
+          <li class="pl-item" data-name="Waxing Wangen" data-price="20" data-pricelabel="20 €" data-dur="20"><span class="pl-name">Wangen</span><span class="pl-dots"></span><span class="pl-price">20 €</span></li>
+          <li class="pl-item" data-name="Waxing ganzes Gesicht" data-price="30" data-pricelabel="30 €" data-dur="30"><span class="pl-name">Ganzes Gesicht</span><span class="pl-dots"></span><span class="pl-price">30 €</span></li>
+        </ul>
+      </div>
+
+      <p class="price-note reveal">* Preise können je nach Aufwand variieren. Maßgeblich ist die Preisliste vor Ort. Stand 2026.</p>
+    </div>
+  </section>
+
+  <!-- ===== Schulungen Banner ===== -->
+  <section class="banner reveal">
+    <div class="container banner-inner">
+      <div>
+        <p class="eyebrow light">Werde Teil der Beauty-Branche</p>
+        <h2>Wimpern-Schulungen <span class="display-edit">bei CLYN</span></h2>
+        <p class="banner-text">Intensivtraining 1:1 · Classic · Hybrid · Volumen. Mit Theorie &amp; Praxis an Modellen, hochwertigem Starterset, Zertifikat und lebenslanger Nachbetreuung. Starte heute, wo andere noch träumen.</p>
+      </div>
+      <a class="btn btn-light" href="kontakt.html#kontakt">Schulung anfragen</a>
+    </div>
+  </section>
+
+  <!-- ===== Online-Buchung ===== -->
+  <section class="contact" id="buchung">
+    <div class="container">
+
+      <!-- Inline Buchungsformular -->
+      <div class="booking-band reveal" id="termin">
+        <div class="bb-head">
+          <p class="eyebrow">Online buchen</p>
+          <h2>In wenigen Schritten<br /><span class="display-edit">zu deinem Termin.</span></h2>
+        </div>
+
+        <form class="appt-form" id="appt-form" novalidate>
+          <div class="af-row">
+            <label><span class="field-cap">Vorname <span class="req">*</span></span>
+              <input type="text" name="firstname" required autocomplete="given-name" />
+            </label>
+            <label><span class="field-cap">Nachname <span class="req">*</span></span>
+              <input type="text" name="lastname" required autocomplete="family-name" />
+            </label>
+          </div>
+          <div class="af-row">
+            <label><span class="field-cap">E-Mail <span class="req">*</span></span>
+              <input type="email" name="email" required autocomplete="email" placeholder="name@beispiel.de" />
+            </label>
+            <label><span class="field-cap">Telefon</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="optional" />
+            </label>
+          </div>
+          <div class="af-pick" id="af-pick">
+            <span class="field-cap">Deine Behandlung(en) <span class="req">*</span></span>
+            <div class="af-cart" id="af-cart" hidden>
+              <ul class="af-cart-list" id="af-cart-list"></ul>
+              <div class="af-cart-total"><span>Gesamt</span><span id="af-cart-total">0 €</span></div>
+            </div>
+            <p class="af-pick-empty" id="af-pick-empty">Noch keine Behandlung gewählt – <a href="#leistungen" class="af-link">jetzt in der Preisliste auswählen</a>.</p>
+          </div>
+          <div class="af-row">
+            <label><span class="field-cap">Wunschdatum <span class="req">*</span></span>
+              <input type="date" name="date" id="af-date" required />
+            </label>
+            <label><span class="field-cap">Uhrzeit <span class="req">*</span></span>
+              <select name="time" id="af-time" required>
+                <option value="" disabled selected>Bitte wählen</option>
+              </select>
+            </label>
+          </div>
+          <label><span class="field-cap">Nachricht (optional)</span>
+            <textarea name="note" rows="3" placeholder="Worum geht es? Wünsche, Fragen …"></textarea>
+          </label>
+          <label class="af-check">
+            <input type="checkbox" name="consent" required />
+            <span>Ich habe die <a href="#" class="af-link">Datenschutzerklärung</a> zur Kenntnis genommen.<span>*</span></span>
+          </label>
+          <button class="btn btn-dark af-submit" id="af-submit" type="submit">Termin anfragen</button>
+        </form>
+
+        <div class="appt-success" id="appt-success" hidden>
+          <div class="success-check">✓</div>
+          <h3>Deine Anfrage ist bereit!</h3>
+          <p>Sende sie jetzt mit einem Klick – wir melden uns schnellstmöglich zur Bestätigung.</p>
+          <div class="success-actions">
+            <a class="btn btn-dark" id="af-whatsapp" target="_blank" rel="noopener">Per WhatsApp senden</a>
+            <a class="btn btn-ghost" id="af-mail">Per E-Mail senden</a>
+          </div>
+          <button class="af-edit" id="af-edit" type="button">← Angaben ändern</button>
+        </div>
+      </div>
+
+      <p class="booking-more reveal">Lieber direkt schreiben oder vorbeikommen? <a href="kontakt.html#kontakt">Kontakt &amp; Anfahrt ansehen →</a></p>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-mark">CLYN</span>
+        <span class="brand-sub">BEAUTY</span>
+        <p>Dermatologische Kosmetik &amp; Ästhetik in Dorsten. Für gesunde Haut &amp; sichtbare Ergebnisse.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#leistungen">Leistungen</a>
+        <a href="studio.html#studio">Studio</a>
+        <a href="kontakt.html#kontakt">Kontakt</a>
+      </nav>
+      <div class="footer-contact">
+        <a href="tel:+491636183181">0163 6183181</a>
+        <a href="mailto:info@clynbeauty.de">info@clynbeauty.de</a>
+        <a href="https://instagram.com/clyn.beauty" target="_blank" rel="noopener">@clyn.beauty</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> CLYN Beauty · Celine Njaradi</span>
+      <span class="footer-legal"><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span>
+    </div>
+  </footer>
+
+  <!-- ===== Warenkorb (FAB + Drawer) ===== -->
+  <button class="cart-fab" id="cart-fab" aria-label="Warenkorb öffnen" hidden>
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <path d="M16 10a4 4 0 0 1-8 0"></path>
+    </svg>
+    <span class="cart-fab-badge" id="cart-count">0</span>
+  </button>
+
+  <div class="cart-drawer-overlay" id="cart-overlay" aria-hidden="true">
+    <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <div class="cart-drawer-head">
+        <h3 id="cart-title">Deine Auswahl</h3>
+        <button class="cart-drawer-close" aria-label="Schließen">&times;</button>
+      </div>
+      <ul class="cart-items" id="cart-items"></ul>
+      <p class="cart-empty" id="cart-empty">Noch keine Behandlung gewählt. Tippe in der Preisliste auf eine Behandlung, um sie hinzuzufügen.</p>
+      <div class="cart-foot" id="cart-foot" hidden>
+        <div class="cart-summary-row total"><span>Gesamt</span><span id="cart-total">0 €</span></div>
+        <button class="btn btn-dark cart-checkout" id="cart-checkout">Termin vereinbaren</button>
+        <button class="cart-clear" id="cart-clear" type="button">Auswahl leeren</button>
+      </div>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="booking.js"></script>
+</body>
+</html>
