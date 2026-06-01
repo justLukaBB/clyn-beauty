@@ -534,9 +534,19 @@ h3 { font-size: 1.4rem; }
 @media (max-width: 640px) {
   /* Hero-Foto als ganz feiner Vollflächen-Hauch hinter dem Text */
   .hero::before {
-    width: 100%; opacity: .42;
+    width: 100%; opacity: .32;
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 100%);
     mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 100%);
+  }
+  /* Ring/Kreis-Deko auf dem Handy ausblenden – stört über dem Text */
+  .hero-deco::after { display: none; }
+  /* "& Ästhetik" kräftiger & lesbarer über dem hellen Foto */
+  .hero h1 .display-edit {
+    background: linear-gradient(120deg, #8a5e2c 0%, #b8893f 50%, #8a5e2c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 1px rgba(26, 26, 26, .22));
   }
   /* Marquee unter den ersten Viewport schieben – schwarzes Band soll nicht reinlugen */
   .hero { padding-bottom: 5.5rem; min-height: calc(100svh - 88px); }
@@ -567,3 +577,38 @@ h3 { font-size: 1.4rem; }
   .marquee-track { animation: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ===== Rechtsseiten (Impressum / Datenschutz) ===== */
+.legal {
+  padding: clamp(110px, 16vh, 170px) 0 90px;
+  background: var(--bg);
+}
+.legal-wrap { max-width: 760px; }
+.legal .eyebrow { margin-bottom: .8rem; }
+.legal h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600; line-height: 1.05;
+  font-size: clamp(2.1rem, 5vw, 3.1rem);
+  color: var(--ink); margin-bottom: 2.2rem;
+}
+.legal h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600; font-size: 1.5rem; color: var(--ink);
+  margin: 2.4rem 0 .7rem;
+}
+.legal h3 {
+  font-size: 1rem; font-weight: 600; color: var(--ink);
+  margin: 1.6rem 0 .4rem;
+}
+.legal p, .legal li {
+  color: var(--ink-soft); line-height: 1.75; font-size: 1rem;
+  margin-bottom: .9rem;
+}
+.legal ul { padding-left: 1.2rem; margin-bottom: .9rem; }
+.legal li { margin-bottom: .4rem; }
+.legal a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.legal a:hover { color: var(--ink); }
+.legal strong { color: var(--ink); font-weight: 600; }
+.legal .legal-meta { font-size: .9rem; color: var(--ink-soft); margin-top: 2.6rem; opacity: .8; }
+.legal hr { border: none; border-top: 1px solid var(--line); margin: 2.4rem 0; }
+.legal .btn-ghost { margin-top: 2.4rem; }
