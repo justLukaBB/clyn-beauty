@@ -38,7 +38,7 @@
   if (rich) {
     const magnets = document.querySelectorAll(
       '.btn-primary, .btn-dark, .btn-accent, .btn-light, .btn-submit, ' +
-      '.nav-cta, .af-submit, .cart-checkout'
+      '.nav-cta'
     );
     magnets.forEach((el) => {
       el.classList.add('fx-magnetic');

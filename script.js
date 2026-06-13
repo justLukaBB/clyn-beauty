@@ -73,17 +73,31 @@ document.querySelectorAll('.service-block').forEach((block) => {
   title.setAttribute('aria-expanded', 'false');
   title.setAttribute('aria-controls', listId);
 
-  const toggleBlock = () => {
-    const open = block.classList.toggle('open');
+  const setOpen = (open) => {
+    block.classList.toggle('open', open);
     title.setAttribute('aria-expanded', open);
   };
 
-  title.addEventListener('click', toggleBlock);
+  title.addEventListener('click', () => setOpen(!block.classList.contains('open')));
   title.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      toggleBlock();
+      setOpen(!block.classList.contains('open'));
     }
+  });
+
+  // „Schließen"-Button am Ende der aufgeklappten Liste → klappt zu & springt zur Überschrift
+  const closeLi = document.createElement('li');
+  closeLi.className = 'pl-close-row';
+  const closeBtn = document.createElement('button');
+  closeBtn.type = 'button';
+  closeBtn.className = 'pl-close';
+  closeBtn.textContent = 'Schließen';
+  closeLi.appendChild(closeBtn);
+  list.appendChild(closeLi);
+  closeBtn.addEventListener('click', () => {
+    setOpen(false);
+    title.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
@@ -100,3 +114,75 @@ const io = new IntersectionObserver(
   { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
 );
 document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+// Google-Maps Klick-zum-Laden (DSGVO) – Karte erst nach aktiver Einwilligung laden
+document.querySelectorAll('.map-consent-load').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const wrap = btn.closest('.map-wrap');
+    const src = wrap && wrap.dataset.src;
+    if (!src) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.title = 'Karte CLYN Beauty Dorsten';
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    iframe.allowFullscreen = true;
+    wrap.innerHTML = '';
+    wrap.appendChild(iframe);
+  });
+});
+
+// Schulungs-Karten: Wisch-Karussell mit Punkte-Indikator (Punkte nur auf dem Handy sichtbar)
+const pkgGrid = document.querySelector('.pkg-grid');
+if (pkgGrid) {
+  const cards = Array.prototype.slice.call(pkgGrid.querySelectorAll('.pkg-card'));
+  if (cards.length > 1) {
+    // Punkte erzeugen
+    const dots = document.createElement('div');
+    dots.className = 'pkg-dots';
+    dots.setAttribute('aria-label', 'Schulungen durchblättern');
+    const dotEls = cards.map((card, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'pkg-dot';
+      dot.setAttribute('aria-label', 'Zur Schulung ' + (i + 1));
+      dot.addEventListener('click', () => {
+        const gr = pkgGrid.getBoundingClientRect();
+        const cr = card.getBoundingClientRect();
+        const delta = (cr.left + cr.width / 2) - (gr.left + pkgGrid.clientWidth / 2);
+        pkgGrid.scrollTo({ left: pkgGrid.scrollLeft + delta, behavior: 'smooth' });
+      });
+      dots.appendChild(dot);
+      return dot;
+    });
+    pkgGrid.insertAdjacentElement('afterend', dots);
+
+    // Aktiven Punkt setzen (entfernen + neu vergeben => 360°-Dreh-Animation triggert jedes Mal)
+    let active = -1;
+    const setActive = (i) => {
+      if (i === active) return;
+      if (active > -1) dotEls[active].classList.remove('active');
+      dotEls[i].classList.add('active');
+      active = i;
+    };
+    setActive(0);
+
+    // Beim Wischen die mittig liegende Karte ermitteln (über Bildschirm-Koordinaten = robust)
+    let raf = 0;
+    pkgGrid.addEventListener('scroll', () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const gr = pkgGrid.getBoundingClientRect();
+        const gridCenter = gr.left + pkgGrid.clientWidth / 2;
+        let best = 0, bestDist = Infinity;
+        cards.forEach((card, i) => {
+          const cr = card.getBoundingClientRect();
+          const d = Math.abs(cr.left + cr.width / 2 - gridCenter);
+          if (d < bestDist) { bestDist = d; best = i; }
+        });
+        setActive(best);
+      });
+    }, { passive: true });
+  }
+}
