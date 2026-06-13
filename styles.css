@@ -424,6 +424,15 @@ h3 { font-size: 1.4rem; }
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity var(--dur-slow) var(--ease-ios), transform var(--dur-slow) var(--ease-ios); }
 .reveal.in { opacity: 1; transform: none; }
 
+/* Gestaffeltes Einblenden (Listen & Karten-Grids) – dezenter Fade-up, nacheinander.
+   Index pro Kind kommt als --rvi aus script.js (siehe data-stagger). */
+[data-stagger] > * {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity var(--dur-slow) var(--ease-ios), transform var(--dur-slow) var(--ease-ios);
+  transition-delay: calc(var(--rvi, 0) * 80ms);
+}
+[data-stagger].in > * { opacity: 1; transform: none; }
+
 /* ===== Responsive ===== */
 @media (max-width: 880px) {
   .nav-links, .nav-cta { display: none; }
@@ -497,7 +506,8 @@ h3 { font-size: 1.4rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .marquee-track { animation: none; }
+  [data-stagger] > * { opacity: 1; transform: none; transition: none; }
+  /* Marquee laeuft bewusst weiter (dekorativ, aria-hidden) – soll dauerhaft rotieren */
   .pkg-dot.active { animation: none; }
   html { scroll-behavior: auto; }
 }
@@ -549,6 +559,9 @@ h3 { font-size: 1.4rem; }
   transition: none !important;
 }
 html { scroll-behavior: auto !important; }
+
+/* Ausnahme vom STATISCH-Block: Der Service-Banner soll dauerhaft nach rechts laufen */
+.marquee-track { animation: scroll 32s linear infinite !important; }
 
 /* Scroll-Reveal: Inhalte sofort & dauerhaft sichtbar, keine Einblendung */
 .reveal { opacity: 1 !important; transform: none !important; }
@@ -617,7 +630,8 @@ html { scroll-behavior: auto !important; }
 @keyframes pkg-dot-spin { from { transform: rotate(0) scale(1.25); } to { transform: rotate(360deg) scale(1.25); } }
 
 @media (max-width: 900px) {
-  .check-list { grid-template-columns: 1fr; gap: .6rem; justify-items: center; }
+  /* Eine Spalte, linksbündig – alle Haken sauber untereinander, Block mittig */
+  .check-list { grid-template-columns: 1fr; gap: .7rem; justify-items: start; max-width: 21rem; margin-inline: auto; }
 
   /* Schulungs-Karten als horizontales Wisch-Karussell */
   .pkg-grid {

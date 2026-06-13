@@ -101,7 +101,14 @@ document.querySelectorAll('.service-block').forEach((block) => {
   });
 });
 
-// Reveal-on-Scroll
+// Gestaffelte Container: jedem Kind seinen Index als --rvi geben (Verzögerungs-Kaskade)
+document.querySelectorAll('[data-stagger]').forEach((group) => {
+  Array.prototype.forEach.call(group.children, (child, i) => {
+    child.style.setProperty('--rvi', i);
+  });
+});
+
+// Reveal-on-Scroll (einzelne .reveal-Elemente + gestaffelte [data-stagger]-Container)
 const io = new IntersectionObserver(
   (entries) => {
     entries.forEach((e) => {
@@ -113,7 +120,7 @@ const io = new IntersectionObserver(
   },
   { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
 );
-document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+document.querySelectorAll('.reveal, [data-stagger]').forEach((el) => io.observe(el));
 
 // Google-Maps Klick-zum-Laden (DSGVO) – Karte erst nach aktiver Einwilligung laden
 document.querySelectorAll('.map-consent-load').forEach((btn) => {
