@@ -175,7 +175,8 @@ h3 { font-size: 1.4rem; }
 .hero h1 { margin-bottom: 1.6rem; }
 .hero-lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 560px; margin-bottom: 2.2rem; }
 .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.4rem; }
-.hero-trust { display: flex; align-items: center; gap: .7rem; font-size: .92rem; color: var(--ink-soft); }
+.hero-trust { display: flex; align-items: baseline; gap: .7rem; font-size: .92rem; color: var(--ink-soft); }
+.hero-trust .stars { flex-shrink: 0; }
 .hero-trust strong { color: var(--ink); }
 .hero-trust em { font-style: normal; color: var(--accent); font-weight: 600; }
 .trust-link { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; text-decoration-color: var(--accent-soft); transition: color .2s, text-decoration-color .2s; }
