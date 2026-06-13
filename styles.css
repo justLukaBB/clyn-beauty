@@ -210,11 +210,12 @@ h3 { font-size: 1.4rem; }
 .marquee { background: var(--ink); color: var(--cream); overflow: hidden; padding: 16px 0; }
 .marquee-track {
   display: flex; gap: 2.2rem; white-space: nowrap; width: max-content;
-  animation: scroll 32s linear infinite reverse;
+  animation: scroll 32s linear infinite;
   font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; letter-spacing: .03em;
 }
 .marquee-track span { opacity: .92; }
-@keyframes scroll { to { transform: translateX(-50%); } }
+/* Inhalt ist 2x dupliziert -> -50% entspricht genau einer Kopie -> nahtlose Endlosschleife nach rechts */
+@keyframes scroll { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
 /* ===== About ===== */
 .about { padding: clamp(4rem, 8vw, 7rem) 0; }
@@ -295,8 +296,8 @@ h3 { font-size: 1.4rem; }
 .pl-name em { font-style: italic; font-weight: 400; color: var(--accent); font-size: .85rem; margin-left: .3rem; }
 .pl-dots { flex: 1; border-bottom: 1px dotted var(--accent-soft); transform: translateY(-4px); min-width: 20px; }
 .pl-meta { font-size: .82rem; color: var(--ink-soft); white-space: nowrap; }
-.pl-price { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; min-width: 72px; text-align: right; }
-.pl-price.note { color: var(--accent); font-style: italic; font-size: 1rem; white-space: nowrap; }
+.pl-price { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.55rem, 1.25rem + 1.5vw, 1.8rem); font-weight: 600; line-height: 1.05; min-width: 84px; text-align: right; white-space: nowrap; }
+.pl-price.note { color: var(--accent); font-style: italic; font-size: 1.1rem; white-space: nowrap; }
 .price-note { text-align: center; font-size: .82rem; color: var(--ink-soft); margin-top: 1rem; }
 .price-list li.pl-note { display: block; border: 0; padding: .9rem .7rem .1rem; font-size: .82rem; font-style: italic; color: var(--ink-soft); line-height: 1.45; }
 
@@ -307,8 +308,8 @@ h3 { font-size: 1.4rem; }
 .price-list li.pl-item { align-items: flex-start; gap: 1.4rem; padding: .95rem 0; }
 .pl-item .pl-text { display: flex; flex-direction: column; gap: .3rem; flex: 1 1 auto; min-width: 0; }
 .pl-item .pl-desc { font-size: .85rem; color: var(--ink-soft); line-height: 1.5; max-width: 62ch; }
-.pl-item .pl-right { display: flex; flex-direction: column; align-items: flex-end; gap: .15rem; flex: 0 0 auto; }
-.pl-item .pl-right .pl-meta { font-size: .8rem; }
+.pl-item .pl-right { display: flex; flex-direction: column; align-items: flex-end; gap: .3rem; flex: 0 0 auto; }
+.pl-item .pl-right .pl-meta { font-size: .85rem; }
 /* „Schließen"-Button am Ende einer aufgeklappten Kategorie */
 .price-list li.pl-close-row { display: flex; justify-content: center; border: 0; padding: 1.3rem 0 .3rem; }
 .pl-close {
@@ -488,8 +489,10 @@ h3 { font-size: 1.4rem; }
 @media (max-width: 520px) {
   .price-list li { flex-wrap: wrap; }
   .pl-dots { display: none; }
-  .pl-meta { order: 3; width: 100%; }
-  .pl-price { margin-left: auto; }
+  /* Preis + Dauer auf dem Handy in einer Zeile: Dauer links, Preis rechts – mit Abstand */
+  .pl-item .pl-right { flex-direction: row; align-items: baseline; width: 100%; justify-content: space-between; gap: 1rem; margin-top: .35rem; }
+  .pl-item .pl-right .pl-price { min-width: 0; text-align: right; order: 2; }
+  .pl-item .pl-right .pl-meta { width: auto; order: 1; }
   .banner-inner { flex-direction: column; align-items: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) {
