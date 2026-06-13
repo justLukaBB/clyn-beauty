@@ -66,6 +66,12 @@ document.querySelectorAll('.service-block').forEach((block) => {
   const list = block.querySelector('.price-list');
   if (!title || !list) return;
 
+  // Reihen-Index für das gestaffelte Einblenden der Angebote beim Aufklappen
+  Array.prototype.forEach.call(
+    list.querySelectorAll('.pl-item, .pl-subhead, .pl-note'),
+    (li, i) => li.style.setProperty('--rvi', Math.min(i, 9))
+  );
+
   const listId = list.id || `pl-${Math.random().toString(36).slice(2, 8)}`;
   list.id = listId;
   title.setAttribute('role', 'button');

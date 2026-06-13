@@ -311,6 +311,20 @@ h3 { font-size: 1.4rem; }
 .pl-item .pl-desc { font-size: .85rem; color: var(--ink-soft); line-height: 1.5; max-width: 62ch; }
 .pl-item .pl-right { display: flex; flex-direction: column; align-items: flex-end; gap: .3rem; flex: 0 0 auto; }
 .pl-item .pl-right .pl-meta { font-size: .85rem; }
+/* Angebote kaskadieren beim Aufklappen sanft ein (Listen-Reveal).
+   --rvi (Reihen-Index) wird pro Eintrag in script.js gesetzt. */
+.price-list .pl-item,
+.price-list .pl-subhead,
+.price-list .pl-note {
+  opacity: 0; transform: translateY(10px);
+  transition: opacity var(--dur) var(--ease-ios), transform var(--dur) var(--ease-ios);
+}
+.service-block.open .price-list .pl-item,
+.service-block.open .price-list .pl-subhead,
+.service-block.open .price-list .pl-note {
+  opacity: 1; transform: none;
+  transition-delay: calc(var(--rvi, 0) * 45ms);
+}
 /* „Schließen"-Button am Ende einer aufgeklappten Kategorie */
 .price-list li.pl-close-row { display: flex; justify-content: center; border: 0; padding: 1.3rem 0 .3rem; }
 .pl-close {
@@ -326,6 +340,11 @@ h3 { font-size: 1.4rem; }
 /* ===== Banner ===== */
 .banner { background: var(--ink); color: var(--cream); padding: clamp(3rem, 6vw, 5rem) 0; }
 .banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; flex-wrap: wrap; }
+/* Variante: nur ein zentrierter Button (Schulungs-Seite) */
+.banner-inner--center { justify-content: center; }
+/* Variante: ohne dunklen Grund, Button weiter oben */
+.banner--plain { background: transparent; color: var(--ink); padding-top: 0; }
+.banner--plain + .site-footer { border-top: 0; }
 /* Heller Text auf dunklem Grund wirkt optisch fetter — daher leichteres Gewicht für die elegante, kontrastreiche Cormorant-Optik */
 .banner h2 { color: #fff; margin: .3rem 0 1rem; font-weight: 400; }
 .banner h2 .display-edit { font-weight: 400; }
@@ -451,7 +470,7 @@ h3 { font-size: 1.4rem; }
   }
   .contact-intro { grid-column: 1 / -1; grid-row: 1; }
   .contact-list { grid-column: 1; grid-row: 2; align-content: start; min-width: 0; }
-  .hours-card { grid-column: 2; grid-row: 2; margin-bottom: 0; min-width: 0; padding: .9rem 1rem; }
+  .hours-card { grid-column: 2; grid-row: 2; margin-bottom: 0; min-width: 0; padding: 0 0 0 1rem; }
   .map-wrap { grid-column: 1 / -1; grid-row: 3; min-width: 0; }
   .contact-list a { font-size: .92rem; overflow-wrap: anywhere; }
   .contact-list { gap: 1rem; }
@@ -504,10 +523,12 @@ h3 { font-size: 1.4rem; }
   .pl-item .pl-right .pl-price { min-width: 0; text-align: right; order: 2; }
   .pl-item .pl-right .pl-meta { width: auto; order: 1; }
   .banner-inner { flex-direction: column; align-items: flex-start; }
+  .banner-inner--center { align-items: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   [data-stagger] > * { opacity: 1; transform: none; transition: none; }
+  .price-list .pl-item, .price-list .pl-subhead, .price-list .pl-note { transition: none; }
   /* Marquee laeuft bewusst weiter (dekorativ, aria-hidden) – soll dauerhaft rotieren */
   .pkg-dot.active { animation: none; }
   html { scroll-behavior: auto; }
