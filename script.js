@@ -3,6 +3,32 @@
 // Jahr im Footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Hero-Slideshow – Studio-Fotos automatisch durchwechseln (sanfter Crossfade)
+(() => {
+  const slides = document.querySelectorAll('.hero-media .hero-slide');
+  if (slides.length < 2) return;
+
+  const WECHSEL_MS = 3000; // Wechsel-Intervall: für „alle 2 Sekunden" auf 2000 ändern
+
+  // Barrierefrei: bei „reduzierte Bewegung" nur das erste Bild zeigen, nicht wechseln
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let i = 0;
+  let timer = null;
+
+  const next = () => {
+    slides[i].classList.remove('is-active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('is-active');
+  };
+  const start = () => { if (!timer) timer = setInterval(next, WECHSEL_MS); };
+  const stop = () => { clearInterval(timer); timer = null; };
+
+  // Im Hintergrund-Tab pausieren (spart Ressourcen, kein „Sprung" beim Zurückkommen)
+  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+  start();
+})();
+
 // Header-Schatten beim Scrollen
 const header = document.querySelector('.site-header');
 const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
