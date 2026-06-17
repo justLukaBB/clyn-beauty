@@ -8,7 +8,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const slides = document.querySelectorAll('.hero-media .hero-slide');
   if (slides.length < 2) return;
 
-  const WECHSEL_MS = 5000; // Anzeigedauer pro Foto (ruhig/langsam); jedes Foto zoomt währenddessen sanft
+  const WECHSEL_MS = 3500; // Anzeigedauer pro Foto; jedes Foto zoomt währenddessen sanft
 
   // Barrierefrei: bei „reduzierte Bewegung" nur das erste Bild zeigen, nicht wechseln
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
