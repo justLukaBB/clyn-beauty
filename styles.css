@@ -193,7 +193,7 @@ h3 { font-size: 1.4rem; }
 .hero-slide {
   position: absolute; inset: 0;
   background-size: cover; background-position: 50% 42%; background-repeat: no-repeat;
-  opacity: 0; transition: opacity 1.3s ease-in-out;
+  opacity: 0; transition: none;
 }
 .hero-slide.is-active { opacity: .95; }
 @media (prefers-reduced-motion: reduce) {
