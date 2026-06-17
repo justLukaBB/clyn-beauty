@@ -186,7 +186,7 @@ h3 { font-size: 1.4rem; }
 /* Hero-Slideshow rechts, weich in den Sandton übergehend */
 .hero-media {
   position: absolute; top: 0; right: 0; bottom: 0;
-  width: 50%; z-index: 1; pointer-events: none;
+  width: 50%; z-index: 1; pointer-events: none; overflow: hidden;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 44%, #000 100%);
   mask-image: linear-gradient(to right, transparent 0%, #000 44%, #000 100%);
 }
@@ -195,9 +195,15 @@ h3 { font-size: 1.4rem; }
   background-size: cover; background-position: 50% 42%; background-repeat: no-repeat;
   opacity: 0; transition: none;
 }
-.hero-slide.is-active { opacity: .95; }
+/* Aktives Foto: sichtbar + sehr langsamer Ken-Burns-Zoom. Der Wechsel selbst
+   ist ein Schnitt – so ist immer genau EIN Foto sichtbar, ohne Überblenden. */
+.hero-slide.is-active { opacity: .95; animation: hero-zoom 7s linear forwards; }
+@keyframes hero-zoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
 @media (prefers-reduced-motion: reduce) {
-  .hero-slide { transition: none; }
+  .hero-slide.is-active { animation: none; transform: none; }
 }
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
