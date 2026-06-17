@@ -8,8 +8,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const slides = document.querySelectorAll('.hero-media .hero-slide');
   if (slides.length < 2) return;
 
-  const WECHSEL_MS = 2000; // Wechsel alle 2 Sekunden
-  const FADE_MS    = 1800; // Dauer der sanften Blende – muss zur CSS-transition (.hero-slide) passen
+  const WECHSEL_MS = 3000; // Wechsel-Intervall: für „alle 2 Sekunden" auf 2000 ändern
 
   // Barrierefrei: bei „reduzierte Bewegung" nur das erste Bild zeigen, nicht wechseln
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -18,17 +17,9 @@ document.getElementById('year').textContent = new Date().getFullYear();
   let timer = null;
 
   const next = () => {
-    const cur = i;
+    slides[i].classList.remove('is-active');
     i = (i + 1) % slides.length;
-    // Neue Folie oben drauf legen und sanft einblenden – die alte bleibt
-    // darunter sichtbar, bis sie verdeckt ist (so blitzt nie der Hintergrund durch)
-    slides[i].style.zIndex = '2';
-    slides[cur].style.zIndex = '1';
     slides[i].classList.add('is-active');
-    setTimeout(() => {
-      slides[cur].classList.remove('is-active');
-      slides[cur].style.zIndex = '0';
-    }, FADE_MS);
   };
   const start = () => { if (!timer) timer = setInterval(next, WECHSEL_MS); };
   const stop = () => { clearInterval(timer); timer = null; };
