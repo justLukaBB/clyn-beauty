@@ -439,6 +439,9 @@ h3 { font-size: 1.4rem; }
 .footer-nav a:hover, .footer-contact a:hover { color: #fff; }
 .footer-bottom { display: flex; justify-content: space-between; padding-top: 1.5rem; font-size: .82rem; color: var(--accent-soft); flex-wrap: wrap; gap: .6rem; }
 .footer-legal a:hover { color: #fff; }
+.footer-credit { text-align: center; padding-top: 1.25rem; margin-top: 1.25rem; border-top: 1px solid rgba(236,231,220,.12); font-size: .8rem; color: var(--accent-soft); }
+.footer-credit a { color: var(--cream); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.footer-credit a:hover { color: #fff; }
 
 /* ===== Online-Buchung CTA ===== */
 .booking-band {
